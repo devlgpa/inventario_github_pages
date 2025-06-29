@@ -14,26 +14,65 @@
       <h2>🟢 Stock disponible</h2>
       <ul>
         <li>Arroz</li>
-        <li>Lápices</li>
-        <li>Audífonos</li>
+        <li>comida gato</li>
+        <li>comida perro</li>
+        <li>papa</li>
+        <li>cebolla</li>
+        <li>lentejas</li>
+        <li>arbejas</li>
+        <li>fideos</li>
+        <li>avena</li>
+        <li>maiz</li>
+        <li>limon</li>
+        <li>habas</li>
+        <li>uva negra</li>
+        <li>mermelada</li>
+        <li>zapallo</li>
+        <li>ajos</li>
       </ul>
     </div>
 
     <div class="categoria">
       <h2>🟡 Stock bajo</h2>
       <ul>
-        <li class="poco">Tinta para impresora</li>
-        <li class="poco">Papel bond</li>
+        <li class="poco">Ayudin</li>
+        <li class="poco">Sal</li>
+        <li class="poco">Pasta dental</li>
+        <li class="poco">Pan</li>
+        <li class="poco">Jamon</li>
+        <li class="poco">mantequilla</li>
+        <li class="poco">queso crema</li>
+        <li class="poco">yogurt griego</li>
+        <li class="poco">papaya</li>
+        <li class="poco">tunas</li>
+
       </ul>
     </div>
 
     <div class="categoria">
       <h2>🔴 Sin stock</h2>
       <ul>
-        <li class="agotado">Pegamento</li>
-        <li class="agotado">Resaltadores</li>
+        <li class="agotado">Desodorante</li>
+        <li class="agotado">Enjuage bucal</li>
+        <li class="agotado">Palomitas</li>
+        <li class="agotado">Huevos</li>
       </ul>
     </div>
   </div>
+
+  <script>
+  // Selecciona todos los títulos de categorías
+  const categorias = document.querySelectorAll('.categoria');
+
+  categorias.forEach(categoria => {
+    const titulo = categoria.querySelector('h2');
+    
+    titulo.addEventListener('click', () => {
+      categoria.classList.toggle('activa');
+    });
+  });
+</script>
+
+
 </body>
 </html>

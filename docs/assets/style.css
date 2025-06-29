@@ -80,3 +80,15 @@ ul {
     align-items: center;
   }
 }
+
+.categoria ul {
+  display: none;
+}
+
+.categoria.activa ul {
+  display: block;
+}
+
+.categoria h2 {
+  cursor: pointer;
+}
