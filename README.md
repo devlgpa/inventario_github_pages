@@ -1,2 +1,3 @@
 # devlgpa.github.io
-mi pagina de prueba
+mi pagina de inventario
+
