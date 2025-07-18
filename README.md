@@ -2,6 +2,6 @@
 
 ## 🖼 Vista previa
 
-![Vista del inventario](docs/panel.png)
+![Vista del inventario](docs/panel.png.png)
 
 
