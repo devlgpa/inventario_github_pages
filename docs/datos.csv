@@ -1,8 +1,7 @@
 Producto,Estado
-arroz,Disponible
-papa,Disponible
-pasta dental,Bajo
-pan de molde,Bajo
+papa,Agotado
+pasta dental,Disponible
+pan de molde,Disponible
 yogurt,Agotado
 zanahoria,Disponible
 aceite,Disponible
