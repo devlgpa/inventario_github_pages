@@ -1,4 +1,5 @@
-##inventario desde gihtub pages con python y tkinter
+##inventario desde gihtub pages con python y
+ tkinter para control local
 
 ## 🖼 Vista previa
 
