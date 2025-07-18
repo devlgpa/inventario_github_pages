@@ -13,75 +13,33 @@
     <div class="categoria">
       <h2>🟢 Stock disponible</h2>
       <ul>
-        <li>Arroz</li>
-        <li>papa</li>
-        <li>cebolla</li>
-        <li>lentejas</li>
-        <li>arbejas</li>
-        <li>fideos</li>
-        <li>avena</li>
-        <li>mote</li>
-        <li>limon</li>
-        <li>habas</li>
-        <li>uva negra</li>
-        <li>mermelada</li>
-        <li>ajos</li>
-        <li>garbanso</li>
-        <li>Huevos</li>
-        <li>Mostaza</li>
-        <li>Aceite</li>
+        <li>arroz</li><li>papa</li>
       </ul>
     </div>
 
     <div class="categoria">
       <h2>🟡 Stock bajo</h2>
       <ul>
-        <li class="poco">Ayudin</li>
-        <li class="poco">Pasta dental</li>
-        <li class="poco">Pan</li>
-        <li class="poco">Jamon</li>        
-        <li class="poco">queso crema</li>
-        <li class="poco">yogurt griego</li>
-        <li class="poco">papaya</li>
-        <li class="poco">tunas</li>
-        
-
+        <li class="poco">pasta dental</li><li class="poco">pan de molde</li>
       </ul>
     </div>
 
     <div class="categoria">
       <h2>🔴 Sin stock</h2>
       <ul>
-        <li class="agotado">Desodorante</li>
-        <li class="agotado">Enjuage bucal</li>
-        <li class="agotado">Palomitas</li>
-        <li class="agotado">Fosforo</li>
-        <li class="agotado">Lapicero rojo</li>
-        <li class="agotado">Liquipaper</li>
-        <li class="agotado">mantequilla</li>
-        <li class="agotado">zanahoria</li>
-        <li class="agotado">Lapicero azul</li>
-        <li class="agotado">zapallo</li>
-        <li class="agotado">Hojas bon</li>
-        <li class="agotado">comida gato</li>
-        <li class="agotado">comida perro</li>
+        <li class="agotado">yogurt</li>
       </ul>
     </div>
   </div>
 
   <script>
-  // Selecciona todos los títulos de categorías
-  const categorias = document.querySelectorAll('.categoria');
-
-  categorias.forEach(categoria => {
-    const titulo = categoria.querySelector('h2');
-    
-    titulo.addEventListener('click', () => {
-      categoria.classList.toggle('activa');
+    const categorias = document.querySelectorAll('.categoria');
+    categorias.forEach(categoria => {
+      const titulo = categoria.querySelector('h2');
+      titulo.addEventListener('click', () => {
+        categoria.classList.toggle('activa');
+      });
     });
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
