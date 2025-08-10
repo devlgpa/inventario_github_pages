@@ -81,6 +81,7 @@ def iniciar_interfaz():
     ventana = tk.Tk()
     ventana.title("Control de Stock")
     ventana.geometry("420x450")
+    ventana.minsize(420, 450)
 
     # Contenedor horizontal para producto, estado y botón agregar
     fila_entrada = tk.Frame(ventana)
@@ -101,9 +102,12 @@ def iniciar_interfaz():
     boton_agregar.pack(side="left")
 
     # Botón para subir a GitHub, lo dejamos separado
-    tk.Button(ventana, text="Subir a GitHub", command=push_a_github, width=12, height=3).pack(pady=10)
+    tk.Button(ventana, text="Subir a GitHub", command=push_a_github, background="gray64").pack(pady=10)
 
     # Contenedor de productos con botones
+    titulo = tk.Label(ventana, text="Inventario de Productos", font=("Arial", 12, "bold"))
+    titulo.pack(pady=10)
+
     contenedor = tk.Frame(ventana)
     contenedor.pack(fill="both", expand=True, padx=10, pady=10)
 
