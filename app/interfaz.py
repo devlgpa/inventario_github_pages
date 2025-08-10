@@ -26,7 +26,7 @@ def iniciar_interfaz():
 
         for index, item in enumerate(inventario):
             fila = tk.Frame(contenedor)
-            fila.pack(fill="x", pady=2, padx=5)
+            fila.pack(fill="x", pady=2, padx=6)
 
             texto = f"{item['Producto']} - {item['Estado']}"
             lbl = tk.Label(fila, text=texto, anchor="w")
