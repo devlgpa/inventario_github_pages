@@ -1,7 +1,9 @@
 Producto,Estado
-papa,Agotado
+papa,Disponible
 pasta dental,Disponible
 pan de molde,Disponible
 yogurt,Agotado
 zanahoria,Disponible
-aceite,Disponible
+aceite,Agotado
+platano,Disponible
+limon,Agotado

@@ -1,10 +1,23 @@
 import tkinter as tk
+import subprocess
 from tkinter import ttk, messagebox
+from datetime import datetime
 from app.datos import cargar_datos, guardar_datos
 from app.html import generar_html
 
 ESTADOS = ["Disponible", "Bajo", "Agotado"]
 inventario = cargar_datos()
+
+def push_a_github():
+    try:
+        ahora = datetime.now().strftime("%d/%m %H:%M")
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", f"Actualización inventario {ahora}"], check=True)
+        subprocess.run(["git", "push", "origin", "main"], check=True)  # Cambia 'main' si usas otro nombre
+        messagebox.showinfo("GitHub", "Inventario subido correctamente a GitHub.")
+    except subprocess.CalledProcessError as e:
+        messagebox.showerror("Error GitHub", f"No se pudo subir a GitHub:\n{e}")
+
 
 def iniciar_interfaz():
     def actualizar_lista():
@@ -79,6 +92,9 @@ def iniciar_interfaz():
     combo_estado.pack(pady=5)
 
     tk.Button(ventana, text="Agregar", command=agregar).pack(pady=5)
+
+    tk.Button(ventana, text="Subir a GitHub", command=push_a_github).pack(pady=5)
+
 
     # Contenedor de productos con botones
     contenedor = tk.Frame(ventana)
