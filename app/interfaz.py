@@ -82,19 +82,26 @@ def iniciar_interfaz():
     ventana.title("Control de Stock")
     ventana.geometry("420x450")
 
-    tk.Label(ventana, text="Producto:").pack()
-    entrada = tk.Entry(ventana)
-    entrada.pack(pady=5)
+    # Contenedor horizontal para producto, estado y botón agregar
+    fila_entrada = tk.Frame(ventana)
+    fila_entrada.pack(pady=10, padx=10, fill="x")
 
-    tk.Label(ventana, text="Estado:").pack()
-    combo_estado = ttk.Combobox(ventana, values=ESTADOS, state="readonly")
+    tk.Label(fila_entrada, text="Producto:").pack(side="left")
+
+    entrada = tk.Entry(fila_entrada)
+    entrada.pack(side="left", padx=(5, 10))
+
+    tk.Label(fila_entrada, text="Estado:").pack(side="left")
+
+    combo_estado = ttk.Combobox(fila_entrada, values=ESTADOS, state="readonly", width=12)
     combo_estado.set(ESTADOS[0])
-    combo_estado.pack(pady=5)
+    combo_estado.pack(side="left", padx=(5, 10))
 
-    tk.Button(ventana, text="Agregar", command=agregar).pack(pady=5)
+    boton_agregar = tk.Button(fila_entrada, text="Agregar", command=agregar)
+    boton_agregar.pack(side="left")
 
-    tk.Button(ventana, text="Subir a GitHub", command=push_a_github).pack(pady=5)
-
+    # Botón para subir a GitHub, lo dejamos separado
+    tk.Button(ventana, text="Subir a GitHub", command=push_a_github, width=12, height=3).pack(pady=10)
 
     # Contenedor de productos con botones
     contenedor = tk.Frame(ventana)
