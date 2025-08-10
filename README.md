@@ -5,5 +5,5 @@
 
 ![Vista del inventario](docs/panel.png.png)
 
-![Vista del panel tkinter(uso local)](docs/panel-tkinter.png.png)
+![Vista del panel tkinter(uso local)](docs/panel-tkinter.png)
 
