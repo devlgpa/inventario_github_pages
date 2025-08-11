@@ -35,11 +35,11 @@ h1 {
   min-width: 250px;
   max-width: 320px; /* Opcional: limita el ancho máximo */
   transition: box-shadow 0.2s;
-  flex-basis: 300px; /* NUEVO: tamaño base de la columna */
+  flex-basis: 100%; /* NUEVO: tamaño base de la columna */
 }
 
 .categoria:hover {
-  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.075);
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.041);
 }
 
 .categoria h2 {
