@@ -24,17 +24,26 @@ def iniciar_interfaz():
         for widget in contenedor.winfo_children():
             widget.destroy()
 
-        for index, item in enumerate(inventario):
-            fila = tk.Frame(contenedor)
-            fila.pack(fill="x", pady=2, padx=6)
+        # Crear tres columnas para cada estado
+        frames_columnas = {}
+        for estado in ESTADOS:
+            frame_col = tk.Frame(contenedor)
+            frame_col.pack(side="left", fill="both", expand=True, padx=5)
+            tk.Label(frame_col, text=estado, font=("Arial", 10, "bold")).pack(pady=(0, 5))
+            frames_columnas[estado] = frame_col
 
-            texto = f"{item['Producto']} - {item['Estado']}"
+        for index, item in enumerate(inventario):
+            estado = item["Estado"]
+            frame_col = frames_columnas[estado]
+            fila = tk.Frame(frame_col)
+            fila.pack(fill="x", pady=2, padx=2)
+
+            texto = item['Producto']
             lbl = tk.Label(fila, text=texto, anchor="w")
             lbl.pack(side="left", fill="x", expand=True)
 
             btn = tk.Button(fila, text="⋮")
             btn.config(command=lambda idx=index, b=btn: mostrar_menu(idx, b))
-
             btn.pack(side="right")
 
     def mostrar_menu(index, boton):
@@ -69,12 +78,18 @@ def iniciar_interfaz():
     def agregar():
         nombre = entrada.get().strip()
         estado = combo_estado.get()
-        if nombre:
-            inventario.append({"Producto": nombre, "Estado": estado})
-            guardar_datos(inventario)
-            generar_html(inventario)
-            entrada.delete(0, tk.END)
-            actualizar_lista()
+        # Validación: nombre vacío o duplicado
+        if not nombre:
+            messagebox.showwarning("Advertencia", "El nombre del producto no puede estar vacío.")
+            return
+        if any(item["Producto"].lower() == nombre.lower() for item in inventario):
+            messagebox.showwarning("Advertencia", f"El producto '{nombre}' ya existe en el inventario.")
+            return
+        inventario.append({"Producto": nombre, "Estado": estado})
+        guardar_datos(inventario)
+        generar_html(inventario)
+        entrada.delete(0, tk.END)
+        actualizar_lista()
 
     # --- VENTANA PRINCIPAL ---
     global ventana
@@ -101,7 +116,7 @@ def iniciar_interfaz():
     boton_agregar = tk.Button(fila_entrada, text="Agregar", command=agregar)
     boton_agregar.pack(side="left")
 
-    # Botón para subir a GitHub, lo dejamos separado
+    # Botón para subir a GitHub
     tk.Button(ventana, text="Subir a GitHub", command=push_a_github, background="gray64").pack(pady=10)
 
     # Contenedor de productos con botones
