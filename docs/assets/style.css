@@ -35,7 +35,7 @@ h1 {
   min-width: 250px;
   max-width: 320px; /* Opcional: limita el ancho máximo */
   transition: box-shadow 0.2s;
-  flex-basis: 100%; /* NUEVO: tamaño base de la columna */
+  flex-basis: auto; /* NUEVO: tamaño base de la columna */
 }
 
 .categoria:hover {
