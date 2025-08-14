@@ -8,6 +8,9 @@
 </head>
 <body>
   <h1>Inventario</h1>
+  <div style="text-align:center; margin-bottom:20px;">
+    <input type="text" id="busqueda" class="busqueda" placeholder="Buscar producto...">
+  </div>
   <div class="contenedor">
     <div class="categoria">
       <h2>🟢 Stock disponible</h2>
@@ -16,9 +19,9 @@
         <li>pasta dental</li>
         <li>pan de molde</li>
         <li>zanahoria</li>
+        <li>aceite</li>
         <li>platano</li>
         <li>pimiento</li>
-        <li>tomate</li>
         <li>fideos</li>
         <li>avena</li>
       </ul>
@@ -30,6 +33,7 @@
         <li class="poco">azucar</li>
         <li class="poco">sal</li>
         <li class="poco">palomitas</li>
+        <li class="poco">tomate</li>
         <li class="poco">detergente</li>
       </ul>
     </div>
@@ -37,16 +41,34 @@
       <h2>🔴 Stock agotado</h2>
       <ul>
         <li class="agotado">yogurt</li>
-        <li class="agotado">aceite</li>
         <li class="agotado">limon</li>
         <li class="agotado">cebolla</li>
         <li class="agotado">shampu</li>
         <li class="agotado">hojas bond</li>
+        <li class="agotado">comida de gato</li>
+        <li class="agotado">lechuga</li>
       </ul>
     </div>
   </div>
 
   <script>
+    // Filtro de productos por búsqueda
+    document.getElementById('busqueda').addEventListener('input', function() {
+      const texto = this.value.toLowerCase();
+      document.querySelectorAll('.categoria li').forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(texto) ? '' : 'none';
+      });
+      // Abrir todas las categorías si hay texto de búsqueda
+      document.querySelectorAll('.categoria').forEach(cat => {
+        if (texto) {
+          cat.classList.add('activa');
+        } else {
+          cat.classList.remove('activa');
+        }
+      });
+    });
+
+    // Expande/colapsa categorías manualmente
     const categorias = document.querySelectorAll('.categoria');
     categorias.forEach(categoria => {
       const titulo = categoria.querySelector('h2');

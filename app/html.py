@@ -19,6 +19,9 @@ def generar_html(inventario):
 </head>
 <body>
   <h1>Inventario</h1>
+  <div style="text-align:center; margin-bottom:20px;">
+    <input type="text" id="busqueda" class="busqueda" placeholder="Buscar producto...">
+  </div>
   <div class="contenedor">
 """)
 
@@ -36,6 +39,23 @@ def generar_html(inventario):
         f.write("""  </div>
 
   <script>
+    // Filtro de productos por búsqueda
+    document.getElementById('busqueda').addEventListener('input', function() {
+      const texto = this.value.toLowerCase();
+      document.querySelectorAll('.categoria li').forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(texto) ? '' : 'none';
+      });
+      // Abrir todas las categorías si hay texto de búsqueda
+      document.querySelectorAll('.categoria').forEach(cat => {
+        if (texto) {
+          cat.classList.add('activa');
+        } else {
+          cat.classList.remove('activa');
+        }
+      });
+    });
+
+    // Expande/colapsa categorías manualmente
     const categorias = document.querySelectorAll('.categoria');
     categorias.forEach(categoria => {
       const titulo = categoria.querySelector('h2');
